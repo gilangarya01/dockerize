@@ -29,7 +29,7 @@ services:
       - app-network
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin
     container_name: phpmyadmin
     ports:
       - "8081:80"

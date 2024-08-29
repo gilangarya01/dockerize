@@ -6,11 +6,11 @@
 </head>
 <body>
     <h1>Edit Item</h1>
-    <form action="/item/edit/<?= $item['id'] ?>" method="POST">
+    <form action="/item/update/<?= $item['id'] ?>" method="POST">
         <input type="text" name="name" value="<?= htmlspecialchars($item['name']) ?>" required><br>
         <textarea name="description" required><?= htmlspecialchars($item['description']) ?></textarea><br>
         <button type="submit">Update</button>
     </form>
-    <a href="/">Back to home</a>
+    <a href="/item">Back to home</a>
 </body>
 </html>

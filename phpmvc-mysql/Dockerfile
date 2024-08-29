@@ -13,4 +13,4 @@ COPY config/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN chown -R www-data:www-data /var/www/html
 
 # Set up environment
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+ENV APACHE_DOCUMENT_ROOT /var/www/html
