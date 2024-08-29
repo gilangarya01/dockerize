@@ -1,5 +1,7 @@
+// Import module
 const { MongoClient } = require("mongodb");
 
+// Connection to database
 async function connectToDB() {
   try {
     const client = await MongoClient.connect(process.env.MONGO_URL, {

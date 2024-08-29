@@ -1,5 +1,5 @@
 # Gunakan image Node.js resmi
-FROM node:16
+FROM node:20-alpine
 
 # Set direktori kerja
 WORKDIR /usr/src/app

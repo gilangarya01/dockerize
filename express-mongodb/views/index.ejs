@@ -8,11 +8,12 @@
   <body>
     <h1>Hello World</h1>
     <a href="/add">add data</a>
-    <table border="1">
+    <table>
       <thead>
         <tr>
           <th>name</th>
           <th>hobby</th>
+          <th>action</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,14 @@
         <tr>
           <td><%= user.name %></td>
           <td><%= user.hobby %></td>
+          <td>
+            <a href="/edit/<%= user._id %>">Edit</a>
+            <a
+              href="/delete/<%= user._id %>"
+              onclick="return confirm('Are you sure?')"
+              >Delete</a
+            >
+          </td>
         </tr>
         <% }); %>
       </tbody>

@@ -1,11 +1,12 @@
+// Import require module
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require("path");
 const { connectToDB } = require("./config/db");
 const adminRoutes = require("./routes/admin");
 
+// Initialize express
 const app = express();
-
+// Set view engine
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
