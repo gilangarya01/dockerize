@@ -15,16 +15,31 @@ class App
         $methodName = !empty($uriParts[1]) ? $uriParts[1] : 'index';
         $id = $uriParts[2] ?? null;
 
-        require_once "app/controllers/$controllerName.php";
-        $controller = new $controllerName;
+        $controllerPath = "app/controllers/$controllerName.php";
 
-        if ($id) {
-            $controller->$methodName($id);
+        // Cek apakah file controller ada
+        if (file_exists($controllerPath)) {
+            require_once $controllerPath;
+            $controller = new $controllerName;
+
+            // Cek apakah method ada di dalam controller
+            if (method_exists($controller, $methodName)) {
+                if ($id) {
+                    $controller->$methodName($id);
+                } else {
+                    $controller->$methodName();
+                }
+            } else {
+                $this->show404();
+            }
         } else {
-            $controller->$methodName();
+            $this->show404();
         }
     }
 
+    private function show404()
+    {
+        http_response_code(404);
+        require_once 'app/views/404.html';
+    }
 }
-
-?>
