@@ -8,7 +8,14 @@ class App
 
     public function __construct()
     {
+        // Tangani file statis seperti gambar
         $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+
+        // Jika URL mengarah ke file yang ada di folder public, langsung return
+        if ($uri !== '' && file_exists("public/" . $uri)) {
+            return;
+        }
+
         $uriParts = explode('/', $uri);
 
         $controllerName = !empty($uriParts[0]) ? ucfirst($uriParts[0]) . 'Controller' : 'HomeController';
@@ -36,6 +43,7 @@ class App
             $this->show404();
         }
     }
+
 
     private function show404()
     {

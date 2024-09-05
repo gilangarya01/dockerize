@@ -28,7 +28,7 @@ services:
       - app-network
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin:latest
     container_name: phpmyadmin
     ports:
       - "8081:80"
